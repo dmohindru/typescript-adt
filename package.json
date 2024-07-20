@@ -1,0 +1,16 @@
+{
+  "name": "typescript-adt",
+  "version": "1.0.0",
+  "description": "Common Abstract datatype implementation in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "structures",
+    "typescript"
+  ],
+  "author": "Dhruv Mohindru",
+  "license": "ISC"
+}
