@@ -2,7 +2,11 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: './src/index.ts', // Adjust the entry point to match your file structure
+    list: './src/list/List.ts',
+    stack: './src/stack/Stack.ts',
+    queue: './src/queue/Queue.ts',
+    graph: './src/graph/Graph.ts',
+    tree: './src/tree/Tree.ts',
   },
   output: {
     filename: '[name].js',
