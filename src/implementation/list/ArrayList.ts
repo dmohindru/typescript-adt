@@ -60,7 +60,7 @@ export class ArrayList<T>
   }
 
   isEmpty(): boolean {
-    throw new Error('Not implemented');
+    return this.dataStore.length === 0;
   }
 
   remove(item: T): boolean {
