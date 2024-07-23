@@ -1,6 +1,7 @@
 import { describe, test, expect } from '@jest/globals';
 import { ArrayList } from '../../src/implementation/list/ArrayList';
-import {ComparableObject} from "../utils/ComparableObject";
+import { ComparableObject } from '../utils/ComparableObject';
+import { NotComparableObject } from '../utils/NotComparableObject';
 
 describe('ArrayList constructor Test', () => {
   test('Should create ArrayList object with zero size if no constructor args provided', () => {
@@ -22,7 +23,7 @@ describe('ArrayList get() Test', () => {
   const initialItems = ['one', 'two', 'three'];
 
   beforeEach(() => {
-    arrayList = new ArrayList<string>(initialItems)
+    arrayList = new ArrayList<string>(initialItems);
   });
 
   test('Should return a valid value if index is within range', () => {
@@ -54,11 +55,11 @@ describe('ArrayList clear() Test', () => {
 });
 
 describe('ArrayList contains() Test with Comparable object', () => {
-  let arrayList: ArrayList<ComparableObject>
+  let arrayList: ArrayList<ComparableObject>;
   const initialItems = [
-      new ComparableObject('Abc', 10),
-      new ComparableObject('Cde', 20),
-      new ComparableObject('Efg', 30)
+    new ComparableObject('Abc', 10),
+    new ComparableObject('Cde', 20),
+    new ComparableObject('Efg', 30),
   ];
   beforeEach(() => {
     arrayList = new ArrayList<ComparableObject>(initialItems);
@@ -81,9 +82,58 @@ describe('ArrayList contains() Test with Comparable object', () => {
   });
 });
 
-
 describe('ArrayList contains() Test with NotComparable object', () => {
+  let arrayList: ArrayList<NotComparableObject>;
+  const initialItems = [
+    new NotComparableObject('Abc', 10),
+    new NotComparableObject('Cde', 20),
+    new NotComparableObject('Efg', 30),
+  ];
 
-})
+  beforeEach(() => {
+    arrayList = new ArrayList<NotComparableObject>(initialItems);
+  });
 
+  test('Should return false if item not present in list', () => {
+    const result = arrayList.contains(new NotComparableObject('rty', 40));
+    expect(result).toBeFalsy();
+  });
 
+  test('Should return true if item present in list', () => {
+    const result = arrayList.contains(initialItems[1]);
+    expect(result).toBeTruthy();
+  });
+
+  test('Should return false even if object in question has same value', () => {
+    const result = arrayList.contains(new NotComparableObject('Abc', 10));
+    expect(result).toBeFalsy();
+  });
+});
+
+describe('ArrayList indexOf() Test with Comparable object', () => {
+  test('Should return -1 if item not present in list', () => {
+    fail();
+  });
+
+  test('Should return positive value if item present in list', () => {
+    fail();
+  });
+
+  test('Should return positive value if new object in question has same value', () => {
+    fail();
+  });
+});
+
+describe('ArrayList indexOf() Test with NotComparable object', () => {
+  test('Should return -1 if item not present in list', () => {
+    fail();
+  });
+
+  test('Should return positive value if item present in list', () => {
+    fail();
+  });
+
+  test('Should return -1 if new object in question have same value', () => {
+    fail();
+  });
+});

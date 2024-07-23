@@ -8,7 +8,7 @@ export class ArrayList<T>
   private dataStore: T[];
   constructor(items: T[] = []) {
     if (items.length > 0) {
-      this.dataStore = [...items]
+      this.dataStore = [...items];
     } else {
       this.dataStore = items;
     }
@@ -22,8 +22,7 @@ export class ArrayList<T>
   }
 
   append(item: T): void {
-    if (item)
-      this.dataStore.push(item);
+    if (item) this.dataStore.push(item);
   }
 
   clear(): void {
@@ -35,10 +34,12 @@ export class ArrayList<T>
   }
 
   contains(item: T): boolean {
-    return false;
+    return this.indexOf(item) !== -1;
   }
 
-  forEach(callback: (item: T, index: number) => void): void {}
+  forEach(callback: (item: T, index: number) => void): void {
+    throw new Error('Not Implemented');
+  }
 
   get(index: number): T | undefined {
     if (index > -1 && index < this.dataStore.length)
@@ -47,24 +48,38 @@ export class ArrayList<T>
   }
 
   indexOf(item: T): number {
-    return 0;
+    return this.dataStore.findIndex((currentItem) => {
+      if (this.isComparable<T>(item) && this.isComparable<T>(currentItem))
+        return item.compareTo(currentItem) === 0;
+      else return item == currentItem;
+    });
   }
 
-  insert(index: number, item: T): void {}
+  insert(index: number, item: T): void {
+    throw new Error('Not implemented');
+  }
 
   isEmpty(): boolean {
-    return false;
+    throw new Error('Not implemented');
   }
 
   remove(item: T): boolean {
-    return false;
+    throw new Error('Not implemented');
   }
 
   removeAt(index: number): T | undefined {
-    return undefined;
+    throw new Error('Not implemented');
   }
 
   toArray(): T[] {
-    return [];
+    throw new Error('Not implemented');
+  }
+
+  private isComparable<T>(obj: any): obj is Comparable<T> {
+    return (
+      obj !== null &&
+      typeof obj === 'object' &&
+      typeof obj.compareTo === 'function'
+    );
   }
 }
