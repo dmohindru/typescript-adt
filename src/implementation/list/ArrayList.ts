@@ -56,7 +56,8 @@ export class ArrayList<T>
   }
 
   insert(index: number, item: T): void {
-    throw new Error('Not implemented');
+    if (index < 0 || index > this.size) throw new Error('Index out of bound');
+    this.dataStore.splice(index, 0, item);
   }
 
   isEmpty(): boolean {

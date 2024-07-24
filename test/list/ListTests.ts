@@ -181,4 +181,46 @@ export function runListTests(
       expect(list.isEmpty()).toBeFalsy();
     });
   });
+
+  describe(`${adtName} insert() test`, () => {
+    let list: List<ComparableObject>;
+    const initialItems = [
+      new ComparableObject('Abc', 10),
+      new ComparableObject('Cde', 20),
+      new ComparableObject('Efg', 30),
+    ];
+
+    beforeEach(() => {
+      list = createList(initialItems);
+    });
+
+    test(`Should insert item if index is within range`, () => {
+      const newItem = new ComparableObject('New-Item', 40);
+      list.insert(0, newItem);
+      expect(list.size).toEqual(initialItems.length + 1);
+
+      let item = list.get(0);
+      expect(item).toEqual(newItem);
+
+      list.insert(list.size, newItem);
+      expect(list.size).toEqual(initialItems.length + 2);
+
+      item = list.get(list.size - 1);
+      expect(item).toEqual(newItem);
+
+      list.insert(1, newItem);
+      expect(list.size).toEqual(initialItems.length + 3);
+
+      item = list.get(1);
+      expect(item).toEqual(newItem);
+    });
+
+    test(`Should throw error with message Index Out of Bound if index in not within range`, () => {
+      const newItem = new ComparableObject('New-Item', 40);
+      expect(() => list.insert(-1, newItem)).toThrow('Index out of bound');
+      expect(() => list.insert(initialItems.length + 1, newItem)).toThrow(
+        'Index out of bound'
+      );
+    });
+  });
 }
