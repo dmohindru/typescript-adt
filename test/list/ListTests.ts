@@ -223,4 +223,98 @@ export function runListTests(
       );
     });
   });
+
+  describe(`${adtName} remove() test with Comparable Object`, () => {
+    let list: List<ComparableObject>;
+    const initialItems = [
+      new ComparableObject('Abc', 10),
+      new ComparableObject('Cde', 20),
+      new ComparableObject('Efg', 30),
+    ];
+
+    beforeEach(() => {
+      list = createList(initialItems);
+    });
+
+    test('Should remove item from list if present in list on basis of referential equality', () => {
+      const result = list.remove(initialItems[0]);
+      expect(result).toBeTruthy();
+      expect(list.contains(initialItems[0])).toBeFalsy();
+      expect(list.size).toEqual(initialItems.length - 1);
+
+    });
+
+    test('Should not remove item if not present in list', () => {
+      const result = list.remove(new ComparableObject('DEF', 40));
+      expect(result).toBeFalsy();
+      expect(list.size).toEqual(initialItems.length);
+    });
+
+    test('Should remove item from list if compareTo is equal', () => {
+      const itemToRemove = new ComparableObject('Efg', 30);
+      const result = list.remove(itemToRemove);
+      expect(result).toBeTruthy();
+      expect(list.contains(itemToRemove)).toBeFalsy();
+      expect(list.contains(itemToRemove)).toBeFalsy();
+    });
+  });
+
+  describe(`${adtName} removeAt() test`, () => {
+    const initialItems = ['One', 'Two', 'Three', 'Four'];
+    test('Should remove item at index if within range', () => {
+      const list = createList(initialItems);
+      let itemRemoved = list.removeAt(0);
+      expect(itemRemoved).toEqual(initialItems[0]);
+
+      itemRemoved = list.removeAt(list.size - 1);
+      expect(itemRemoved).toEqual(initialItems[3]);
+
+      itemRemoved = list.removeAt(1);
+      expect(itemRemoved).toEqual('Three');
+
+      expect(list.size).toEqual(1);
+    });
+
+    test('Should return undefined if index out of bound', () => {
+      const list = createList(initialItems);
+      let itemRemoved = list.removeAt(-1);
+      expect(itemRemoved).toBeFalsy();
+      itemRemoved = list.removeAt(list.size);
+      expect(itemRemoved).toBeFalsy();
+
+      expect(list.size).toEqual(initialItems.length);
+    });
+  });
+
+  describe(`${adtName} toArray() test`, () => {
+
+    test('Return array should be equal to supplied array', () => {
+      const initialItems = [
+        new ComparableObject('Abc', 10),
+        new ComparableObject('Cde', 20),
+        new ComparableObject('Efg', 30),
+      ];
+      const list = createList(initialItems);
+
+      const returnedArray = list.toArray();
+      expect(returnedArray).toEqual(initialItems);
+    });
+  });
+
+  describe(`${adtName} forEach() test`, () => {
+    test('Should return running total of number array supplied', () => {
+      const initialItems = [1, 2, 3, 4, 5];
+      const list = createList(initialItems);
+
+      let runningTotal = 0;
+      const indexArray = [];
+      list.forEach((item, index) => {
+        runningTotal += item;
+        indexArray.push(index);
+      });
+
+      expect(runningTotal).toEqual(initialItems.reduce((acc, curr) => acc + curr, 0));
+      expect(indexArray.length).toEqual(initialItems.length);
+    });
+  });
 }

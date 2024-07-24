@@ -38,7 +38,7 @@ export class ArrayList<T>
   }
 
   forEach(callback: (item: T, index: number) => void): void {
-    throw new Error('Not Implemented');
+    this.dataStore.forEach((currItem, currIndex) => callback(currItem, currIndex));
   }
 
   get(index: number): T | undefined {
@@ -56,7 +56,7 @@ export class ArrayList<T>
   }
 
   insert(index: number, item: T): void {
-    if (index < 0 || index > this.size) throw new Error('Index out of bound');
+    if (index < 0 || index > this.size) this.throwError('Index out of bound');
     this.dataStore.splice(index, 0, item);
   }
 
@@ -65,15 +65,25 @@ export class ArrayList<T>
   }
 
   remove(item: T): boolean {
-    throw new Error('Not implemented');
+    const index = this.indexOf(item);
+    if (index > -1) {
+      this.dataStore.splice(index, 1);
+      return true;
+    }
+    return false;
   }
 
   removeAt(index: number): T | undefined {
-    throw new Error('Not implemented');
+    if (index < 0 || index > this.dataStore.length - 1) {
+      return undefined;
+    }
+    const itemToRemove = this.dataStore[index];
+    this.dataStore.splice(index, 1);
+    return itemToRemove;
   }
 
   toArray(): T[] {
-    throw new Error('Not implemented');
+    return this.dataStore;
   }
 
   private isComparable<T>(obj: any): obj is Comparable<T> {
@@ -82,5 +92,9 @@ export class ArrayList<T>
       typeof obj === 'object' &&
       typeof obj.compareTo === 'function'
     );
+  }
+
+  private throwError(message: string) {
+    throw new Error(message);
   }
 }
