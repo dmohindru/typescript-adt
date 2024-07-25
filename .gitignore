@@ -77,3 +77,5 @@ jspm_packages/
 
 # Optional IDE configurations for Visual Studio Code
 .history/
+
+coverage/

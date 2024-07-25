@@ -2,11 +2,11 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    list: './src/list/List.ts',
-    stack: './src/stack/Stack.ts',
-    queue: './src/queue/Queue.ts',
-    graph: './src/graph/Graph.ts',
-    tree: './src/tree/Tree.ts',
+    list: './src/implementation/list/ArrayList.ts',
+    // stack: './src/stack/Stack.ts',
+    // queue: './src/queue/Queue.ts',
+    // graph: './src/graph/Graph.ts',
+    // tree: './src/tree/Tree.ts',
   },
   output: {
     filename: '[name].js',

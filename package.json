@@ -1,13 +1,14 @@
 {
-  "name": "typescript-adt",
-  "version": "1.0.0",
+  "name": "@dmohindru/typescript-adt",
+  "version": "0.0.1-beta",
   "description": "Common Abstract datatype implementation in Typescript",
-  "main": "index.js",
   "scripts": {
-    "dist": "webpack",
+    "publish": "npm dist && npm publish --access public",
+    "dist": "npm run test:coverage && webpack",
     "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\" \"test/**/*.{ts,tsx,js,jsx,json,css,scss,md}\""
   },
   "keywords": [
@@ -16,7 +17,7 @@
     "typescript"
   ],
   "author": "Dhruv Mohindru",
-  "license": "ISC",
+  "license": "GNU",
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
     "@types/jest": "^29.5.12",
