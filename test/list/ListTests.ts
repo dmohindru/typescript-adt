@@ -241,7 +241,6 @@ export function runListTests(
       expect(result).toBeTruthy();
       expect(list.contains(initialItems[0])).toBeFalsy();
       expect(list.size).toEqual(initialItems.length - 1);
-
     });
 
     test('Should not remove item if not present in list', () => {
@@ -287,7 +286,6 @@ export function runListTests(
   });
 
   describe(`${adtName} toArray() test`, () => {
-
     test('Return array should be equal to supplied array', () => {
       const initialItems = [
         new ComparableObject('Abc', 10),
@@ -313,17 +311,19 @@ export function runListTests(
         indexArray.push(index);
       });
 
-      expect(runningTotal).toEqual(initialItems.reduce((acc, curr) => acc + curr, 0));
+      expect(runningTotal).toEqual(
+        initialItems.reduce((acc, curr) => acc + curr, 0)
+      );
       expect(indexArray.length).toEqual(initialItems.length);
     });
   });
 
   describe(`${adtName} iterator test`, () => {
-    const initialItems = ['One', 'Two', 'Three']
-    let list: List<string>
+    const initialItems = ['One', 'Two', 'Three'];
+    let list: List<string>;
 
     beforeEach(() => {
-      list = createList(initialItems)
+      list = createList(initialItems);
     });
 
     test('for of loop test', () => {
@@ -331,11 +331,11 @@ export function runListTests(
       for (const item of list) {
         expect(item).toEqual(initialItems[i++]);
       }
-    })
+    });
 
     test('spread operator test', () => {
       const listItems = [...list];
       expect(listItems).toEqual(initialItems);
-    })
-  })
+    });
+  });
 }

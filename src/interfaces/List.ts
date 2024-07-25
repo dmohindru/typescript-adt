@@ -81,5 +81,5 @@ export interface List<T> {
   /**
    * Return an iterator for List.
    */
-  [Symbol.iterator](): Iterator<T>
+  [Symbol.iterator](): Iterator<T>;
 }

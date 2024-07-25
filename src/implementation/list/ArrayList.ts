@@ -2,9 +2,7 @@ import { List } from '../../interfaces/List';
 import { Comparable } from '../../interfaces/Comparable';
 import { IterableCollection } from '../../interfaces/Iterable';
 
-export class ArrayList<T>
-  implements List<T>, IterableCollection<T>
-{
+export class ArrayList<T> implements List<T>, IterableCollection<T> {
   private dataStore: T[];
   constructor(items: T[] = []) {
     if (items.length > 0) {
@@ -23,12 +21,12 @@ export class ArrayList<T>
     return {
       next(): IteratorResult<T> {
         if (index < items.length) {
-          return {value: items[index++], done: false}
+          return { value: items[index++], done: false };
         } else {
-          return {value: undefined, done: true}
+          return { value: undefined, done: true };
         }
-      }
-    }
+      },
+    };
   }
 
   append(item: T): void {
@@ -44,7 +42,9 @@ export class ArrayList<T>
   }
 
   forEach(callback: (item: T, index: number) => void): void {
-    this.dataStore.forEach((currItem, currIndex) => callback(currItem, currIndex));
+    this.dataStore.forEach((currItem, currIndex) =>
+      callback(currItem, currIndex)
+    );
   }
 
   get(index: number): T | undefined {
