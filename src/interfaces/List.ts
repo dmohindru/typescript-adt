@@ -77,4 +77,9 @@ export interface List<T> {
    * Gets the number of elements in the list.
    */
   readonly size: number;
+
+  /**
+   * Return an iterator for List.
+   */
+  [Symbol.iterator](): Iterator<T>
 }

@@ -317,4 +317,25 @@ export function runListTests(
       expect(indexArray.length).toEqual(initialItems.length);
     });
   });
+
+  describe(`${adtName} iterator test`, () => {
+    const initialItems = ['One', 'Two', 'Three']
+    let list: List<string>
+
+    beforeEach(() => {
+      list = createList(initialItems)
+    });
+
+    test('for of loop test', () => {
+      let i = 0;
+      for (const item of list) {
+        expect(item).toEqual(initialItems[i++]);
+      }
+    })
+
+    test('spread operator test', () => {
+      const listItems = [...list];
+      expect(listItems).toEqual(initialItems);
+    })
+  })
 }

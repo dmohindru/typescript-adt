@@ -3,7 +3,7 @@ import { Comparable } from '../../interfaces/Comparable';
 import { IterableCollection } from '../../interfaces/Iterable';
 
 export class ArrayList<T>
-  implements List<T>, IterableCollection<T>, Comparable<T>
+  implements List<T>, IterableCollection<T>
 {
   private dataStore: T[];
   constructor(items: T[] = []) {
@@ -18,7 +18,17 @@ export class ArrayList<T>
   }
 
   [Symbol.iterator](): Iterator<T> {
-    throw Error('Not Implemented');
+    let index = 0;
+    const items = this.dataStore;
+    return {
+      next(): IteratorResult<T> {
+        if (index < items.length) {
+          return {value: items[index++], done: false}
+        } else {
+          return {value: undefined, done: true}
+        }
+      }
+    }
   }
 
   append(item: T): void {
@@ -27,10 +37,6 @@ export class ArrayList<T>
 
   clear(): void {
     this.dataStore = [];
-  }
-
-  compareTo(other: T): number {
-    return 0;
   }
 
   contains(item: T): boolean {
