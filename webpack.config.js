@@ -1,17 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    list: './src/implementation/list/ArrayList.ts',
-    // stack: './src/stack/Stack.ts',
-    // queue: './src/queue/Queue.ts',
-    // graph: './src/graph/Graph.ts',
-    // tree: './src/tree/Tree.ts',
-  },
+  entry: './src/index.ts',
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'typescript-adt',
+    library: '@dmohindru/typescript-adt',
     libraryTarget: 'umd',
     globalObject: 'this',
   },

@@ -1,9 +1,14 @@
 {
   "name": "@dmohindru/typescript-adt",
-  "version": "0.0.1-beta",
+  "version": "0.0.3-SNAPHOT",
   "description": "Common Abstract datatype implementation in Typescript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "publish": "npm dist && npm publish --access public",
+    "publish": "npm run dist && npm publish --access public",
     "dist": "npm run test:coverage && webpack",
     "build": "tsc",
     "test": "jest",
