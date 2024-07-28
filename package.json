@@ -1,16 +1,30 @@
 {
   "name": "@dmohindru/typescript-adt",
-  "version": "0.0.3-SNAPHOT",
+  "version": "0.0.1",
   "description": "Common Abstract datatype implementation in Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./list": {
+      "import": "./dist/list/index.js",
+      "require": "./dist/list/index.js"
+    },
+    "./interfaces": {
+      "import": "./dist/interfaces/index.js",
+      "require": "./dist/interfaces/index.js"
+    }
+  },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "publish": "npm run dist && npm publish --access public",
-    "dist": "npm run test:coverage && webpack",
-    "build": "tsc",
+    "deploy": "npm run dist && npm publish --access public",
+    "dist": "npm run test:coverage && npm run build",
+    "build": "rm -rf dist coverage && tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
