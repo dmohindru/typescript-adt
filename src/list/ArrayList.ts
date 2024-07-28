@@ -1,6 +1,6 @@
 import { List } from './List';
-import { Comparable } from '../interfaces/Comparable';
-import { IterableCollection } from '../interfaces/Iterable';
+import { Comparable } from '../interfaces';
+import { IterableCollection } from '../interfaces';
 
 export class ArrayList<T> implements List<T>, IterableCollection<T> {
   private dataStore: T[];
