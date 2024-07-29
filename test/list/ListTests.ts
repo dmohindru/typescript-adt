@@ -1,7 +1,7 @@
 import { describe, test, expect } from '@jest/globals';
 import { ComparableObject } from '../utils/ComparableObject';
 import { NotComparableObject } from '../utils/NotComparableObject';
-import { List } from '../../src';
+import { List } from '../../src/list';
 
 export function runListTests(
   adtName: string,

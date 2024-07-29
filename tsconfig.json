@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2022",
     "module": "commonjs",
+    "moduleResolution": "Node",
+    "isolatedModules": true,
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
@@ -9,9 +11,9 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "sourceMap": true,
-    "paths": {
-      "@dmohindru/typescript-adt/*": ["./dist/*"]
-    }
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noEmit": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
