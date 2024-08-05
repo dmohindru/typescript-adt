@@ -34,7 +34,7 @@
     "docs"
   ],
   "scripts": {
-    "deploy": "npm run dist && npm publish --access public",
+    "deploy": "npm publish --access public",
     "docs": "npx typedoc",
     "build:clean": "rimraf coverage dist docs",
     "build:code": "tsup-node",
