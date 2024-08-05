@@ -45,7 +45,6 @@ temp/
 jspm_packages/
 
 # dotenv environment variable files
-.env
 .env.test
 .env.production
 
@@ -67,15 +66,10 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
-.env
-.env.test
-.env.production
-
 # Optional stylelint cache
 .stylelintcache
 
 # Optional IDE configurations for Visual Studio Code
 .history/
 
-coverage/
+docs/

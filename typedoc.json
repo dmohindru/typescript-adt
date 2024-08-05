@@ -1,0 +1,13 @@
+{
+  "entryPoints": [
+    "src/list/index.ts",
+    "src/interfaces/index.ts"
+  ],
+  "out": "docs",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "readme": "README.md",
+  "exclude": ["**/*.test.ts", "**/__tests__/**"]
+}
