@@ -1,31 +1,46 @@
 {
   "name": "@dmohindru/typescript-adt",
-  "version": "0.0.1-TEST3",
+  "version": "0.0.1-TEST5",
   "description": "Common Abstract datatype implementation in Typescript",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "typesVersions": {
+    ">=4.0": {
+      "*": [
+        "dist/types/*"
+      ]
+    }
+  },
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
     "./list": {
+      "types": "./dist/types/list/index.d.ts",
       "import": "./dist/list/index.mjs",
       "require": "./dist/list/index.js"
     },
     "./interfaces": {
+      "types": "./dist/types/interfaces/index.d.ts",
       "import": "./dist/interfaces/index.mjs",
       "require": "./dist/interfaces/index.js"
     }
   },
   "files": [
-    "/dist"
+    "dist",
+    "docs"
   ],
   "scripts": {
     "deploy": "npm run dist && npm publish --access public",
-    "dist": "npm run test:coverage && npm run build",
-    "build": "rm -rf dist coverage && tsup",
+    "docs": "npx typedoc",
+    "build:clean": "rimraf coverage dist docs",
+    "build:code": "tsup-node",
+    "build:types": "tsc --project tsconfig.build.json",
+    "build": "run-s test:coverage build:clean build:code build:types",
+    "publish": "run-s build docs",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -42,10 +57,14 @@
     "@tsconfig/node20": "^20.1.4",
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
+    "npm-run-all2": "^6.2.2",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.2.3",
     "ts-loader": "^9.5.1",
     "tsup": "^8.2.3",
+    "tsx": "^4.16.5",
+    "typedoc": "^0.26.5",
     "typescript": "^5.5.3"
   }
 }
