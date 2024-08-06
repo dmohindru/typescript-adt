@@ -30,17 +30,16 @@
     }
   },
   "files": [
-    "dist",
-    "docs"
+    "dist"
   ],
   "scripts": {
     "deploy": "npm publish --access public",
     "docs": "npx typedoc",
-    "build:clean": "rimraf coverage dist docs",
+    "build:clean": "rimraf coverage dist",
     "build:code": "tsup-node",
     "build:types": "tsc --project tsconfig.build.json",
     "build": "run-s test:coverage build:clean build:code build:types",
-    "publish": "run-s build docs",
+    "build:project": "run-s build docs",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

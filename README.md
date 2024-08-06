@@ -60,14 +60,14 @@ For typescript to be able to find type definition files for this library make su
 Library is built on a robust set of interfaces to ensure consistency and flexibility. Below are the primary interfaces provided by the library and some of their implementations.
 
 ### Interfaces
-- [`List<T>`](./docs/modules/list.html): A linear collection that allows for indexed access to elements.
+- [`List<T>`](https://dmohindru.github.io/typescript-adt/modules/list.html): A linear collection that allows for indexed access to elements.
 - `Stack<T>`: A collection that follows the Last-In-First-Out (LIFO) principle. (TBI)
 - `Queue<T>`: A collection that follows the First-In-First-Out (FIFO) principle. (TBI)
 - `Graph<T>`: A collection of nodes connected by edges. (TBI)
 - `Tree<T>`: A hierarchical structure of nodes. (TBI)
 
 ### Implementation
-**[`List<T>`](./docs/modules/list.html)**
+**[`List<T>`](https://dmohindru.github.io/typescript-adt/modules/list.html)**
 - ArrayList
 
 ```javascript
@@ -80,6 +80,6 @@ import {ArrayList} from '@dmohindru/typescript-adt/list';
 
 ### Links
 
-- [API Docs](./docs/index.html)
+- [API Docs](https://dmohindru.github.io/typescript-adt/index.html)
 - [Github](https://github.com/dmohindru/typescript-adt)
  
