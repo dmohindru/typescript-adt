@@ -45,6 +45,17 @@ list.forEach((item, index) =>
 ...
 ```
 
+**Typescript Config**
+
+For typescript to be able to find type definition files for this library make sure tsconfig.json as following settings
+```json
+{
+  ... other setting
+  "module": "NodeNext",
+  "moduleResolution": "NodeNext"
+}
+```
+
 ## Interfaces and Implementations
 Library is built on a robust set of interfaces to ensure consistency and flexibility. Below are the primary interfaces provided by the library and some of their implementations.
 
