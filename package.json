@@ -1,6 +1,6 @@
 {
   "name": "@dmohindru/typescript-adt",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Common Abstract datatype implementation in Typescript",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

@@ -8,12 +8,12 @@ Whether working on a backend project with Node.js or a frontend application with
 
 ### Installation
 ```shell
-npm intall @dmohindru/typescript-adt
+npm install @dmohindru/typescript-adt
 ```
 
 **CommonJS**
 ```javascript
-const {ArrayList} = require('@dmohindru/typescript-adt/list');
+const { ArrayList } = require('@dmohindru/typescript-adt/list');
 
 // Create List
 const list = new ArrayList(['one', 'two', 'three']);
@@ -30,7 +30,7 @@ list.forEach((item, index) =>
 
 **ES Module**
 ```javascript
-import {ArrayList} from '@dmohindru/typescript-adt/list';
+import { ArrayList } from '@dmohindru/typescript-adt/list';
 
 // Create List
 const list = new ArrayList(['one', 'two', 'three']);
@@ -61,13 +61,13 @@ Library is built on a robust set of interfaces to ensure consistency and flexibi
 
 ```javascript
 // CommonJS
-const {ArrayList} = require('@dmohindru/typescript-adt/list');
+const { ArrayList } = require('@dmohindru/typescript-adt/list');
 
 // ES Module
 import {ArrayList} from '@dmohindru/typescript-adt/list';
 ```
 
-### Docs
+### Links
 
 - [API Docs](./docs/index.html)
 - [Github](https://github.com/dmohindru/typescript-adt)
