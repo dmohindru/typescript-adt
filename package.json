@@ -1,6 +1,6 @@
 {
   "name": "@dmohindru/typescript-adt",
-  "version": "1.0.1",
+  "version": "0.0.7",
   "description": "Common Abstract datatype implementation in Typescript",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -35,6 +35,7 @@
   "scripts": {
     "deploy": "npm publish --access public",
     "docs": "npx typedoc",
+    "docs:clean": "rimraf docs",
     "build:clean": "rimraf coverage dist",
     "build:code": "tsup-node",
     "build:types": "tsc --project tsconfig.build.json",
