@@ -305,7 +305,7 @@ export function runListTests(
       const list = createList(initialItems);
 
       let runningTotal = 0;
-      const indexArray = [];
+      const indexArray: number[] = [];
       list.forEach((item, index) => {
         runningTotal += item;
         indexArray.push(index);
