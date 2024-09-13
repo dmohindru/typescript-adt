@@ -1,7 +1,8 @@
+import { CollectionOps } from '../interfaces';
 /**
  * Interface representing a generic Stack ADT.
  */
-export interface Stack<T> {
+export interface Stack<T> extends CollectionOps {
   /**
    * Adds an element to the top of the stack
    * @param item - The element to add.
@@ -19,20 +20,4 @@ export interface Stack<T> {
    * @returns The top element of stack, or undefined if stack is empty.
    */
   peek(): T | undefined;
-
-  /**
-   * Returns true if the stack is empty.
-   * @returns True if the stack is empty, otherwise false.
-   */
-  isEmpty(): boolean;
-
-  /**
-   * Gets the number of elements in the stack.
-   */
-  readonly size: number;
-
-  /**
-   * Clears all elements from the stack.
-   */
-  clear(): void;
 }

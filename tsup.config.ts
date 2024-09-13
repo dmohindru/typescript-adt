@@ -7,6 +7,8 @@ export default defineConfig({
     index: 'src/index.ts',
     'list/index': 'src/list/index.ts',
     'interfaces/index': 'src/interfaces/index.ts',
+    'stack/index': 'src/stack/index.ts',
+    'queue/index': 'src/queue/index.ts',
   },
   clean: true,
   dts: false,
