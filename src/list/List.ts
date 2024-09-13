@@ -1,5 +1,5 @@
 /**
- * Interface representing a generic list ADT.
+ * Interface representing a generic List ADT.
  */
 export interface List<T> {
   /**
