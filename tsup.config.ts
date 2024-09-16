@@ -10,6 +10,7 @@ export default defineConfig({
     'stack/index': 'src/stack/index.ts',
     'queue/index': 'src/queue/index.ts',
     'tree/index': 'src/tree/index.ts',
+    'graph/index': 'src/graph/index.ts',
   },
   clean: true,
   dts: false,
