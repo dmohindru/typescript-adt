@@ -1,7 +1,8 @@
+import { CollectionOps } from '../interfaces';
 /**
- * Interface representing a generic list ADT.
+ * Interface representing a generic List ADT.
  */
-export interface List<T> {
+export interface List<T> extends CollectionOps {
   /**
    * Adds an element to the end of the list.
    * @param item - The element to add.
@@ -51,17 +52,6 @@ export interface List<T> {
   contains(item: T): boolean;
 
   /**
-   * Returns true if the list is empty.
-   * @returns True if the list is empty, otherwise false.
-   */
-  isEmpty(): boolean;
-
-  /**
-   * Clears all elements from the list.
-   */
-  clear(): void;
-
-  /**
    * Returns an array representation of the list.
    * @returns An array containing all the elements in the list.
    */
@@ -72,11 +62,6 @@ export interface List<T> {
    * @param callback - The function to execute for each element.
    */
   forEach(callback: (item: T, index: number) => void): void;
-
-  /**
-   * Gets the number of elements in the list.
-   */
-  readonly size: number;
 
   /**
    * Return an iterator for List.
