@@ -1,7 +1,7 @@
 import { Stack } from './Stack';
 export class ArrayStack<T> implements Stack<T> {
   push(item: T): void {
-    throw new Error('Method not implemented.');
+    throw new Error('Method not implemented. Starting now');
   }
 
   pop(): T | undefined {
