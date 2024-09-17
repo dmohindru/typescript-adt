@@ -1,25 +1,31 @@
 import { Stack } from './Stack';
+import { ArrayList } from '../list';
 export class ArrayStack<T> implements Stack<T> {
+  private dataStore: ArrayList<T>;
+  constructor() {
+    this.dataStore = new ArrayList<T>();
+  }
+
   push(item: T): void {
-    throw new Error('Method not implemented. Starting now');
+    this.dataStore.append(item);
   }
 
   pop(): T | undefined {
-    throw new Error('Method not implemented.');
+    return this.dataStore.removeAt(this.dataStore.size - 1);
   }
 
   peek(): T | undefined {
-    throw new Error('Method not implemented.');
+    return this.dataStore.get(this.dataStore.size - 1);
   }
 
   isEmpty(): boolean {
-    throw new Error('Method not implemented.');
+    return this.dataStore.size === 0;
   }
   get size(): number {
-    throw new Error('Method not implemented.');
+    return this.dataStore.size;
   }
 
   clear(): void {
-    throw new Error('Method not implemented.');
+    this.dataStore.clear();
   }
 }
