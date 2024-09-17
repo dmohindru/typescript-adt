@@ -23,6 +23,11 @@
       "import": "./dist/list/index.mjs",
       "require": "./dist/list/index.js"
     },
+    "./stack": {
+      "types": "./dist/types/stack/index.d.ts",
+      "import": "./dist/stack/index.mjs",
+      "require": "./dist/stack/index.js"
+    },
     "./interfaces": {
       "types": "./dist/types/interfaces/index.d.ts",
       "import": "./dist/interfaces/index.mjs",
