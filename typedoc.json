@@ -1,7 +1,8 @@
 {
   "entryPoints": [
+    "src/interfaces/index.ts",
     "src/list/index.ts",
-    "src/interfaces/index.ts"
+    "src/stack/index.ts"
   ],
   "out": "docs",
   "includeVersion": true,
