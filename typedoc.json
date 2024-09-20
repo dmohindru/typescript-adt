@@ -2,7 +2,8 @@
   "entryPoints": [
     "src/interfaces/index.ts",
     "src/list/index.ts",
-    "src/stack/index.ts"
+    "src/stack/index.ts",
+    "src/queue/index.ts"
   ],
   "out": "docs",
   "includeVersion": true,
