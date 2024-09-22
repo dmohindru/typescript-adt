@@ -16,12 +16,12 @@ export class ArrayQueue<T> implements Queue<T> {
     return this.dataStore.get(0);
   }
   isEmpty(): boolean {
-    throw new Error('Method not implemented.');
+    return this.dataStore.size === 0;
   }
   get size(): number {
     return this.dataStore.size;
   }
   clear(): void {
-    throw new Error('Method not implemented.');
+    this.dataStore.clear();
   }
 }

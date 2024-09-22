@@ -65,4 +65,30 @@ export function runQueueTests(adtName: string, createQueue: <T>() => Queue<T>) {
       expect(queue.size).toEqual(items.length);
     });
   });
+
+  describe(`${adtName} isEmpty() test`, () => {
+    let queue: Queue<string>;
+    beforeEach(() => {
+      queue = createQueue<string>();
+    });
+    test('should return true with queue is empty', () => {
+      expect(queue.isEmpty()).toBeTruthy();
+    });
+
+    test('should return false with queue is not empty', () => {
+      queue.enqueue('first');
+      expect(queue.isEmpty()).toBeFalsy();
+    });
+  });
+
+  describe(`${adtName} clear() test`, () => {
+    test('should clear all the queue items', () => {
+      const queue = createQueue<string>();
+      const items = ['first', 'second', 'third'];
+      items.forEach((item) => queue.enqueue(item));
+      expect(queue.isEmpty()).toBeFalsy();
+      queue.clear();
+      expect(queue.isEmpty()).toBeTruthy();
+    });
+  });
 }
