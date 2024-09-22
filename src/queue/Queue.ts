@@ -1,4 +1,5 @@
 import { QueueBase } from './QueueBase';
+
 /**
  * Interface representing a generic Queue ADT.
  */

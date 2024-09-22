@@ -99,6 +99,18 @@ const { Stack, ArrayStack } = require('@dmohindru/typescript-adt/stack');
 import { Stack, ArrayStack } from '@dmohindru/typescript-adt/stack';
 ```
 
+**[`Queue<T>`](https://dmohindru.github.io/typescript-adt/modules/queue.html)**
+
+- ArrayQueue
+
+```javascript
+// CommonJS
+const { Queue, ArrayQueue } = require('@dmohindru/typescript-adt/queue');
+
+// ES Module
+import { Queue, ArrayQueue } from '@dmohindru/typescript-adt/queue';
+```
+
 ### Links
 
 - [API Docs](https://dmohindru.github.io/typescript-adt/index.html)
