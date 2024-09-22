@@ -69,7 +69,7 @@ Library is built on a robust set of interfaces to ensure consistency and flexibi
 
 - [`List<T>`](https://dmohindru.github.io/typescript-adt/modules/list.html): A linear collection that allows for indexed access to elements.
 - [`Stack<T>`](https://dmohindru.github.io/typescript-adt/modules/stack.html): A collection that follows the Last-In-First-Out (LIFO) principle.
-- `Queue<T>`: A collection that follows the First-In-First-Out (FIFO) principle. (TBI)
+- [`Queue<T>`](https://dmohindru.github.io/typescript-adt/modules/queue.html): A collection that follows the First-In-First-Out (FIFO) principle.
 - `Graph<T>`: A collection of nodes connected by edges. (TBI)
 - `Tree<T>`: A hierarchical structure of nodes. (TBI)
 
