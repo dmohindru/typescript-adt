@@ -77,7 +77,7 @@ Library is built on a robust set of interfaces to ensure consistency and flexibi
 
 **[`List<T>`](https://dmohindru.github.io/typescript-adt/modules/list.html)**
 
-- ArrayList
+- [ArrayList](https://dmohindru.github.io/typescript-adt/docs/classes/list.ArrayList.html)
 
 ```javascript
 // CommonJS
@@ -86,6 +86,16 @@ const { List, ArrayList } = require('@dmohindru/typescript-adt/list');
 // ES Module
 import { List, ArrayList } from '@dmohindru/typescript-adt/list';
 ```
+
+- [LinkedList](https://dmohindru.github.io/typescript-adt/docs/classes/list.LinkedList.html)
+```javascript
+// CommonJS
+const { List, LinkedList } = require('@dmohindru/typescript-adt/list');
+
+// ES Module
+import { List, LinkedList } from '@dmohindru/typescript-adt/list';
+```
+
 
 **[`Stack<T>`](https://dmohindru.github.io/typescript-adt/modules/stack.html)**
 

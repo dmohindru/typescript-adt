@@ -42,6 +42,13 @@ export function runListTests(
   });
 
   describe(`${adtName} append() Test`, () => {
+    test('Should append item to empty list', () => {
+      const list = createList<number>([]);
+      list.append(1);
+      expect(list.size).toEqual(1);
+      expect(list.get(0)).toEqual(1);
+    });
+
     test('Should append item to list', () => {
       const list = createList([1, 2, 3]);
       list.append(4);
@@ -176,7 +183,7 @@ export function runListTests(
       expect(list.isEmpty()).toBeTruthy();
     });
 
-    test('Should rturn false for non empty list', () => {
+    test('Should return false for non empty list', () => {
       const list = createList(['one', 'two', 'three']);
       expect(list.isEmpty()).toBeFalsy();
     });
