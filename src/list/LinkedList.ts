@@ -62,7 +62,13 @@ export class LinkedList<T> implements List<T>, IterableCollection<T> {
   }
 
   forEach(callback: (item: T, index: number) => void): void {
-    throw new Error('Not implemented');
+    let current = this.head;
+    let counter = 0;
+    while (current !== null) {
+      callback(current.data, counter);
+      current = current.next;
+      counter++;
+    }
   }
 
   get(index: number): T | undefined {
@@ -128,19 +134,84 @@ export class LinkedList<T> implements List<T>, IterableCollection<T> {
   }
 
   remove(item: T): boolean {
-    throw new Error('Not implemented');
+    let current = this.head;
+    let previous = this.head;
+    while (current !== null) {
+      if (this.isComparable(current.data) && this.isComparable(item)) {
+        if (current.data.compareTo(item) === 0) {
+          break;
+        }
+      } else {
+        if (current.data === item) {
+          break;
+        }
+      }
+      previous = current;
+      current = current.next;
+    }
+    if (current === null) {
+      return false;
+    }
+    if (current === this.head) {
+      this.head = current.next;
+    } else if (previous !== null) {
+      previous.next = current.next;
+    }
+    this._size--;
+    return true;
   }
 
   removeAt(index: number): T | undefined {
-    throw new Error('Not implemented');
+    if (index < 0 || index >= this._size) {
+      return undefined;
+    }
+
+    if (index === 0 && this.head !== null) {
+      const val = this.head.data;
+      this.head = this.head.next;
+      this._size--;
+      return val;
+    }
+    let current = this.head;
+    let previous = this.head;
+    let counter = 0;
+    while (current !== null && counter !== index) {
+      previous = current;
+      current = current.next;
+      counter++;
+    }
+
+    if (previous != null) {
+      const val = current?.data;
+      previous.next = current?.next ?? null;
+      this._size--;
+      return val;
+    }
   }
 
   toArray(): T[] {
-    throw new Error('Not implemented');
+    let current = this.head;
+    const array: T[] = [];
+    while (current !== null) {
+      array.push(current.data);
+      current = current.next;
+    }
+    return array;
   }
 
   [Symbol.iterator](): Iterator<T> {
-    throw new Error('Not Implemented');
+    let current = this.head;
+    return {
+      next(): IteratorResult<T> {
+        if (current !== null) {
+          const val = current.data;
+          current = current.next;
+          return { value: val, done: false };
+        } else {
+          return { value: undefined, done: true };
+        }
+      },
+    };
   }
 
   private isComparable<T>(obj: any): obj is Comparable<T> {

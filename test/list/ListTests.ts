@@ -183,7 +183,7 @@ export function runListTests(
       expect(list.isEmpty()).toBeTruthy();
     });
 
-    test('Should rturn false for non empty list', () => {
+    test('Should return false for non empty list', () => {
       const list = createList(['one', 'two', 'three']);
       expect(list.isEmpty()).toBeFalsy();
     });
